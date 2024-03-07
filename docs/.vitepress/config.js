@@ -3,11 +3,11 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-07 19:54:53
+ * @LastEditTime: 2024-03-07 20:02:32
  */
 const argv = require("minimist")(process.argv.slice(2));
 const build = argv.build || false;
-const baseBuild = build ? "/blog/" : "/";
+const baseBuild = build ? "/docs/" : "/";
 module.exports = {
   title: "easy-coding",
   base: baseBuild,
