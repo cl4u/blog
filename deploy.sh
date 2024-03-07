@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
+###
+ # @Author: rk
+ # @Description: 
+ # @Date: 2024-03-07 17:17:42
+ # @LastEditors: rk
+ # @LastEditTime: 2024-03-07 20:04:12
+### 
  
 # 忽略错误
 set -e  #有错误抛出错误
@@ -13,7 +20,7 @@ git init  #执行这些git命令
 git add -A
 git commit -m 'deploy'
  
-git push -f https://github.com/cl4u/docs.git master:gh-pages  #提交到这个分支
+git push -f https://github.com/cl4u/blog.git master:gh-pages  #提交到这个分支
  
 cd -
  

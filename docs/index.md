@@ -14,7 +14,7 @@ hero:
       link: /doc/template/vue2/introduce
     - theme: alt
       text: GitHub
-      link: https://github.com/cl4u/docs.git
+      link: https://github.com/cl4u/blog.git
   image:
     src: ./logo.png
     alt: easy-coding
