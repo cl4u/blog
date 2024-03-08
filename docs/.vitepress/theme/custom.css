@@ -1,4 +1,9 @@
-@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.6.0/style.min.css");
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
 
 :root {
   --vp-font-family-base: "LXGW WenKai Lite", "Inter var experimental",
