@@ -1,0 +1,70 @@
+<!--
+ * @Author: rk
+ * @Description: 
+ * @Date: 2024-03-12 09:40:48
+ * @LastEditors: rk
+ * @LastEditTime: 2024-03-12 18:55:58
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        margin: 100px auto;
+        width: 600px;
+        height: 300px;
+        background: violet;
+        border-radius: 20px;
+        position: relative;
+      }
+      .top {
+        text-align: right;
+        color: #fff;
+        margin: 0 50px;
+        padding-top: 50px;
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .bottom {
+        width: 580px;
+        height: 280px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #fff;
+        display: flex;
+        align-items: flex-end;
+        font-weight: 700;
+        padding-left: 50px;
+        padding-bottom: 50px;
+        box-sizing: border-box;
+        clip-path: polygon(
+          0% 0%,
+          30% 0px,
+          70% 50%,
+          100% 50%,
+          100% 100%,
+          0 100%
+        );
+      }
+      span {
+        color: brown;
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">闲置</div>
+      <div class="bottom">100 <span>个</span></div>
+    </div>
+  </body>
+</html>

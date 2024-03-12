@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-08 10:18:00
+ * @LastEditTime: 2024-03-12 19:39:44
  */
 module.exports = {
   title: "easy-coding",
@@ -57,11 +57,11 @@ module.exports = {
           { text: "其他", link: "/dev/other/theme" },
         ],
       },
-      {
-        text: "面试",
-        link: "/interview/html",
-        activeMatch: "/interview/",
-      },
+      // {
+      //   text: "面试",
+      //   link: "/interview/html",
+      //   activeMatch: "/interview/",
+      // },
     ],
     // 侧边栏
     sidebar: {
@@ -194,7 +194,53 @@ module.exports = {
                 },
                 {
                   text: "css",
-                  link: "/dev/question/css",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: false, // 默认是不是展开
+                  items: [
+                    {
+                      text: "列表边框重合问题",
+                      link: "/dev/question/css/列表边框重合问题",
+                    },
+                    {
+                      text: "font-size设置小于12px",
+                      link: "/dev/question/css/font-size设置小于12px",
+                    },
+                    {
+                      text: "修改浏览器滚动条",
+                      link: "/dev/question/css/修改浏览器滚动条",
+                    },
+                    {
+                      text: "浏览器记住密码去除input背景",
+                      link: "/dev/question/css/浏览器记住密码去除input背景",
+                    },
+                    {
+                      text: "切角",
+                      link: "/dev/question/css/切角",
+                    },
+                    {
+                      text: "滤镜构建圆角及波浪效果",
+                      link: "/dev/question/css/滤镜构建圆角及波浪效果",
+                    },
+                    {
+                      text: "flex布局最后一行左对齐",
+                      link: "/dev/question/css/flex布局最后一行左对齐",
+                    },
+                    {
+                      text: "长方形中包含一个直角梯形",
+                      link: "/dev/question/css/长方形中包含一个直角梯形",
+                    },
+                  ],
+                },
+                {
+                  text: "scss",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: false, // 默认是不是展开
+                  items: [
+                    {
+                      text: "生成margin、padding值",
+                      link: "/dev/question/scss/生成margin、padding值",
+                    },
+                  ],
                 },
                 {
                   text: "js",
@@ -239,7 +285,14 @@ module.exports = {
                 },
                 {
                   text: "css",
-                  link: "/dev/article/css/index",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: false, // 默认是不是展开
+                  items: [
+                    {
+                      text: "html",
+                      link: "/dev/article/css/index",
+                    },
+                  ],
                 },
                 {
                   text: "js",
@@ -270,7 +323,7 @@ module.exports = {
         {
           items: [
             {
-              text: "主体切换",
+              text: "主题切换",
               link: "/dev/other/theme",
             },
             {
