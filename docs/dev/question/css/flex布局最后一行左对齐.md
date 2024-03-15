@@ -8,6 +8,9 @@ outline: deep
 
 <img src="../../../imgs/question15.png"  class="theme-image">
 
+<details>
+  <summary>查看代码</summary>
+
 ```html
 <div class="container">
   <div class="list">1</div>
@@ -18,31 +21,30 @@ outline: deep
   <div class="list">6</div>
   <div class="list">7</div>
 </div>
-```
-
-```css
 <style>
-* {
+  * {
     padding: 0;
     margin: 0;
-}
-.container {
+  }
+  .container {
     width: 400px;
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-.list {
+  }
+  .list {
     width: 24%;
     height: 100px;
     line-height: 100px;
     text-align: center;
     background: chartreuse;
     margin-top: 15px;
-}
+  }
 </style>
 ```
+
+</details>
 
 ## 1、如果每一行列数是固定的
 
@@ -59,6 +61,9 @@ nth-child(): 第几个子元素
 :::
 
 <img src="../../../imgs/question16.png"  class="theme-image">
+
+<details>
+  <summary>查看代码</summary>
 
 ```css
 * {
@@ -84,6 +89,8 @@ nth-child(): 第几个子元素
 }
 ```
 
+</details>
+
 ### 1.2 根据个数最后一个元素动态设置 margin
 
 由于每一列的数目都是固定的，因此，我们可以计算出不同个数列表应该设置多大的 margin 值。
@@ -107,6 +114,9 @@ nth-child(): 第几个子元素
 :::
 
 <img src="../../../imgs/question17.gif"  class="theme-image">
+
+<details>
+  <summary>查看代码</summary>
 
 ```css
 * {
@@ -138,6 +148,8 @@ nth-child(): 第几个子元素
 }
 ```
 
+</details>
+
 ## 2、如果每一列宽度不是固定的
 
 如果每一列的宽度不是固定的，则间距不能使用计算了。
@@ -146,6 +158,9 @@ nth-child(): 第几个子元素
 
 <img src="../../../imgs/question18.png"  class="theme-image">
 
+<details>
+  <summary>查看代码</summary>
+
 ```html
 <div class="container">
   <div class="list box1">1</div>
@@ -161,75 +176,78 @@ nth-child(): 第几个子元素
   <div class="list box11">11</div>
   <div class="list box12">12</div>
 </div>
-```
 
-```css
 <style>
-* {
+  * {
     padding: 0;
     margin: 0;
-}
-.container {
+  }
+  .container {
     width: 500px;
     max-width: 100%;
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-.list {
+  }
+  .list {
     height: 100px;
     line-height: 100px;
     text-align: center;
     background: chartreuse;
     margin: 10px;
-}
-.list:last-child {
+  }
+  .list:last-child {
     margin-right: auto;
-}
-.box1 {
+  }
+  .box1 {
     width: 40px;
-}
-.box2 {
+  }
+  .box2 {
     width: 140px;
-}
-.box3 {
+  }
+  .box3 {
     width: 120px;
-}
-.box4 {
+  }
+  .box4 {
     width: 60px;
-}
-.box5 {
+  }
+  .box5 {
     width: 80px;
-}
-.box6 {
+  }
+  .box6 {
     width: 170px;
-}
-.box7 {
+  }
+  .box7 {
     width: 60px;
-}
-.box8 {
+  }
+  .box8 {
     width: 70px;
-}
-.box9 {
+  }
+  .box9 {
     width: 120px;
-}
-.box10 {
+  }
+  .box10 {
     width: 140px;
-}
-.box11 {
+  }
+  .box11 {
     width: 30px;
-}
-.box12 {
+  }
+  .box12 {
     width: 80px;
-}
+  }
 </style>
 ```
+
+</details>
 
 ### 2.2 创建伪元素并设置 flex: auto 或 flex: 1
 
 <img src="../../../imgs/question18.png"  class="theme-image">
 
+<details>
+  <summary>查看代码</summary>
+
 ```html
 <div class="container">
   <div class="list box1">1</div>
@@ -245,77 +263,80 @@ nth-child(): 第几个子元素
   <div class="list box11">11</div>
   <div class="list box12">12</div>
 </div>
-```
 
-```css
 <style>
-* {
+  * {
     padding: 0;
     margin: 0;
-}
-.container {
+  }
+  .container {
     width: 500px;
     max-width: 100%;
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-.list {
+  }
+  .list {
     height: 100px;
     line-height: 100px;
     text-align: center;
     background: chartreuse;
     margin: 10px;
-}
-.container::after{
+  }
+  .container::after {
     content: "";
-    flex: auto
-}
-.box1 {
+    flex: auto;
+  }
+  .box1 {
     width: 40px;
-}
-.box2 {
+  }
+  .box2 {
     width: 140px;
-}
-.box3 {
+  }
+  .box3 {
     width: 120px;
-}
-.box4 {
+  }
+  .box4 {
     width: 60px;
-}
-.box5 {
+  }
+  .box5 {
     width: 80px;
-}
-.box6 {
+  }
+  .box6 {
     width: 170px;
-}
-.box7 {
+  }
+  .box7 {
     width: 60px;
-}
-.box8 {
+  }
+  .box8 {
     width: 70px;
-}
-.box9 {
+  }
+  .box9 {
     width: 120px;
-}
-.box10 {
+  }
+  .box10 {
     width: 140px;
-}
-.box11 {
+  }
+  .box11 {
     width: 30px;
-}
-.box12 {
+  }
+  .box12 {
     width: 80px;
-}
+  }
 </style>
 ```
+
+</details>
 
 ## 3、如果每一行列数不固定
 
 如果每一行列数不固定，我们可以使用足够的空白标签进行填充占位，具体的占位数量是由最多列数的个数决定的，例如这个布局最多 7 列，那我们可以使用 7 个空白标签进行填充占位，最多 10 列，那我们需要使用 10 个空白标签。
 
 <img src="../../../imgs/question19.gif"  class="theme-image">
+
+<details>
+  <summary>查看代码</summary>
 
 ```html
 <div class="container">
@@ -328,40 +349,43 @@ nth-child(): 第几个子元素
   <div class="list">7</div>
   <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
 </div>
-```
 
-```css
 <style>
-* {
+  * {
     padding: 0;
     margin: 0;
-}
-.container {
+  }
+  .container {
     margin: 100px auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-.list {
+  }
+  .list {
     width: 100px;
     height: 100px;
     line-height: 100px;
     text-align: center;
     background: chartreuse;
     margin: 15px 10px 0 0;
-}
-i {
+  }
+  i {
     width: 100px;
     margin-right: 10px;
-}
+  }
 </style>
 ```
+
+</details>
 
 ## 4、如果列数不能固定且 html 不能改变
 
 这种情况可以使用 grid 布局，grid 可以设置间隙 gap，且天然格子对齐排布。
 
 <img src="../../../imgs/question20.gif"  class="theme-image">
+
+<details>
+  <summary>查看代码</summary>
 
 ```html
 <div class="container">
@@ -373,28 +397,28 @@ i {
   <div class="list">6</div>
   <div class="list">7</div>
 </div>
-```
 
-```css
 <style>
-* {
+  * {
     padding: 0;
     margin: 0;
-}
-.container {
+  }
+  .container {
     margin: 100px auto;
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, 100px);
     grid-gap: 10px;
-}
-.list {
+  }
+  .list {
     width: 100px;
     height: 100px;
     line-height: 100px;
     text-align: center;
     background: chartreuse;
     margin-top: 5px;
-}
+  }
 </style>
 ```
+
+</details>

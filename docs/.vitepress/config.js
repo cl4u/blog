@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-12 19:39:44
+ * @LastEditTime: 2024-03-13 11:38:28
  */
 module.exports = {
   title: "easy-coding",
@@ -333,6 +333,14 @@ module.exports = {
               items: [
                 {
                   text: "卡片动画",
+                  link: "/dev/other/card",
+                },
+                {
+                  text: "大屏动画",
+                  link: "/dev/other/screen",
+                },
+                {
+                  text: "其他动画",
                   link: "/dev/other/animation",
                 },
               ],
