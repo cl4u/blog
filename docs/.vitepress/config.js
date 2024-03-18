@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-13 11:38:28
+ * @LastEditTime: 2024-03-18 19:19:53
  */
 module.exports = {
   title: "easy-coding",
@@ -188,10 +188,10 @@ module.exports = {
               collapsible: true, // 是不是可以动态展开
               collapsed: false, // 默认是不是展开
               items: [
-                {
-                  text: "html",
-                  link: "/dev/question/html",
-                },
+                // {
+                //   text: "html",
+                //   link: "/dev/question/html",
+                // },
                 {
                   text: "css",
                   collapsible: true, // 是不是可以动态展开
@@ -210,8 +210,24 @@ module.exports = {
                       link: "/dev/question/css/修改浏览器滚动条",
                     },
                     {
+                      text: "让页面里的字体变清晰，变细用CSS怎么做",
+                      link: "/dev/question/css/让页面里的字体变清晰，变细用CSS怎么做",
+                    },
+                    {
                       text: "浏览器记住密码去除input背景",
                       link: "/dev/question/css/浏览器记住密码去除input背景",
+                    },
+                    {
+                      text: "改变输入框内提示文字颜色",
+                      link: "/dev/question/css/改变输入框内提示文字颜色",
+                    },
+                    {
+                      text: "手机上的多行省略",
+                      link: "/dev/question/css/手机上的多行省略",
+                    },
+                    {
+                      text: "消除transtration闪屏",
+                      link: "/dev/question/css/消除transtration闪屏",
                     },
                     {
                       text: "切角",
@@ -304,7 +320,30 @@ module.exports = {
                 },
                 {
                   text: "element",
-                  link: "/dev/article/element/index",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: false, // 默认是不是展开
+                  items: [
+                    {
+                      text: "记录elementUI中表格合并",
+                      link: "/dev/article/element/记录elementUI中表格合并",
+                    },
+                    {
+                      text: "elementUI多个表单同时提交校验问题",
+                      link: "/dev/article/element/elementUI多个表单同时提交校验问题",
+                    },
+                    {
+                      text: "elementUI多选框选中问题",
+                      link: "/dev/article/element/elementUI多选框选中问题",
+                    },
+                    {
+                      text: "用element开发一个复杂表格",
+                      link: "/dev/article/element/用element开发一个复杂表格",
+                    },
+                    {
+                      text: "使用element给表头单元格添加斜线分割线",
+                      link: "/dev/article/element/使用element给表头单元格添加斜线分割线",
+                    },
+                  ],
                 },
                 {
                   text: "vue2",

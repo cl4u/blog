@@ -735,3 +735,128 @@ outline: deep
 ```
 
 </details>
+
+## 6、动效 6
+
+<img src="../../imgs/animate32.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="box">
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="element">
+      <div class="mask"></div>
+    </div>
+  </div>
+</div>
+<script>
+  let elements = document.getElementsByClassName("element");
+
+  // 添加鼠标移动事件监听器
+  document.addEventListener("mousemove", function (e) {
+    // 获取鼠标位置
+    let mouseX = e.pageX;
+    let mouseY = e.pageY;
+
+    // 遍历元素并输出距离鼠标的坐标
+    for (var i = 0; i < elements.length; i++) {
+      let element = elements[i];
+      let rect = element.getBoundingClientRect();
+      let elementX = rect.left + window.pageXOffset;
+      let elementY = rect.top + window.pageYOffset;
+      let distanceX = mouseX - elementX;
+      let distanceY = mouseY - elementY;
+
+      element.style.setProperty("--x", distanceX + "px");
+      element.style.setProperty("--y", distanceY + "px");
+    }
+  });
+</script>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #0d1428;
+  }
+  .box {
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col {
+    width: calc((100% - 4 * 20px) / 4);
+    height: 180px;
+    padding: 10px;
+  }
+  .element {
+    background: #172033;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+  }
+  .element::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 3px);
+    height: calc(100% + 3px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: radial-gradient(
+      250px circle at var(--x) var(--y),
+      #00dc82 0,
+      transparent 100%
+    );
+  }
+  .element .mask {
+    position: absolute;
+    inset: 3px;
+    background: #172033;
+    border-radius: 10px;
+  }
+</style>
+```
+
+</details>

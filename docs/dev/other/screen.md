@@ -6,7 +6,7 @@ outline: deep
 
 ## 1、动画 1
 
-<img src="../../imgs/animate6.gif" class="theme-image" />
+<img src="../../imgs/animate6.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -123,7 +123,7 @@ outline: deep
 
 ## 2、动画 2
 
-<img src="../../imgs/animate7.gif" class="theme-image" />
+<img src="../../imgs/animate7.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -388,7 +388,7 @@ outline: deep
 
 ## 3、动画 3
 
-<img src="../../imgs/animate8.gif" class="theme-image" />
+<img src="../../imgs/animate8.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>

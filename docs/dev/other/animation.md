@@ -3346,7 +3346,7 @@ writing-mode: 属性定义了文本水平或垂直排布以及在块级元素中
 
 ## 14、文字舞台灯光效果
 
-<img src="../../imgs/animate20.gif" class="theme-image" />
+<img src="../../imgs/animate20.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -3387,7 +3387,7 @@ writing-mode: 属性定义了文本水平或垂直排布以及在块级元素中
 
 ## 15、文字闪烁效果
 
-<img src="../../imgs/animate21.gif" class="theme-image" />
+<img src="../../imgs/animate21.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -3645,7 +3645,7 @@ writing-mode: 属性定义了文本水平或垂直排布以及在块级元素中
 
 ## 20、角向渐变实现光影 border 效果
 
-<img src="../../imgs/animate24.gif" class="theme-image" />
+<img src="../../imgs/animate24.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -3821,7 +3821,7 @@ writing-mode: 属性定义了文本水平或垂直排布以及在块级元素中
 
 ## 23、3D 数字计数动画
 
-<img src="../../imgs/animate26.gif" class="theme-image" />
+<img src="../../imgs/animate26.gif" class="theme-image set-bg" />
 
 <details>
   <summary>查看代码</summary>
@@ -4067,6 +4067,1056 @@ writing-mode: 属性定义了文本水平或垂直排布以及在块级元素中
       });
     }, 2000);
   });
+</script>
+```
+
+</details>
+
+## 24、3D 球动画
+
+<img src="../../imgs/animate27.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+  <div class="point"></div>
+</div>
+
+<style lang="scss">
+  $n: 100;
+
+  @function randomNum($max, $min: 0, $u: 1) {
+    @return ($min + random($max)) * $u;
+  }
+
+  @function randomColor() {
+    @return rgba(
+      randomNum(255),
+      randomNum(255),
+      randomNum(255),
+      randomNum(100) / 100
+    );
+  }
+
+  body {
+    background: #000;
+    overflow: hidden;
+  }
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate3d(-50%, -50%, 0) rotateY(0deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+    perspective: 1000;
+    animation: fullrotate 10s linear infinite;
+    // filter: blur(1px);
+  }
+  .point {
+    position: absolute;
+    top: 95px;
+    left: 49%;
+    background: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    // mix-blend-mode: lighten;
+
+    @for $i from 1 through $n {
+      $rot-x: random(360) + deg;
+      $rot-y: random(360) + deg;
+      $radius: 100px;
+
+      &:nth-child(#{$i}) {
+        transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius);
+        background: randomColor();
+        filter: blur(0px);
+        animation: expand#{$i} 10s linear infinite, sparkle 0.25s linear infinite;
+        animation-delay: $i * 2ms;
+      }
+      @keyframes expand#{$i} {
+        0% {
+          transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius);
+          filter: blur(0px);
+          width: 20px;
+          height: 20px;
+        }
+        20%,
+        40% {
+          transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius *
+                ($i/10));
+          filter: blur(10px);
+          width: 20px;
+          height: 20px;
+        }
+        40%,
+        60% {
+          transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius * 4);
+          filter: blur(0px);
+          width: 40px;
+          height: 40px;
+        }
+        65%,
+        80% {
+          transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius *
+                ($i/10));
+          filter: blur(10px);
+          width: 20px;
+          height: 20px;
+        }
+        85%,
+        100% {
+          transform: rotateY($rot-y) rotateX($rot-x) translateZ($radius);
+          filter: blur(0px);
+          width: 20px;
+          height: 20px;
+        }
+      }
+      @-webkit-keyframes sparkle {
+        50% {
+          background: lemonchiffon;
+        }
+      }
+    }
+  }
+
+  @keyframes fullrotate {
+    to {
+      transform: translate3d(-50%, -50%, 0) rotateY(360deg) rotateZ(360deg);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 25、巧用 Animation Step 实现 Loading
+
+:::tip 属性介绍
+will-change，顾名思意“我要变形了，它的作用是“提高浏览器的页面渲染性能”。
+
+filter: hue-rotate(xdeg)
+
+hue-rotate()函数是一个内置函数，用于对图像应用滤镜以设置图像的色调旋转。该函数接受单参数角度，该角度保持 hue-rotation 的角度。正色相角会增加色相值，而负角会降低色相值。
+:::
+
+<img src="../../imgs/animate28.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="g-container g-steps">
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+  <div class="g-box"></div>
+</div>
+
+<style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+  }
+  .g-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 200px auto;
+  }
+  .g-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .g-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #01fd28;
+    border-radius: 50%;
+  }
+  .g-box:nth-child(1) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(18deg) translate(0, 120px);
+  }
+  .g-box:nth-child(1)::before {
+    filter: hue-rotate(18deg);
+    transform: scale(0.05);
+    will-change: transform;
+  }
+  .g-box:nth-child(2) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(36deg) translate(0, 120px);
+  }
+  .g-box:nth-child(2)::before {
+    filter: hue-rotate(36deg);
+    transform: scale(0.1);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(3) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(54deg) translate(0, 120px);
+  }
+  .g-box:nth-child(3)::before {
+    filter: hue-rotate(54deg);
+    transform: scale(0.15);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(4) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(72deg) translate(0, 120px);
+  }
+  .g-box:nth-child(4)::before {
+    filter: hue-rotate(72deg);
+    transform: scale(0.2);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(5) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(90deg) translate(0, 120px);
+  }
+  .g-box:nth-child(5)::before {
+    filter: hue-rotate(90deg);
+    transform: scale(0.25);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(6) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(108deg) translate(0, 120px);
+  }
+  .g-box:nth-child(6)::before {
+    filter: hue-rotate(108deg);
+    transform: scale(0.3);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(7) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(126deg) translate(0, 120px);
+  }
+  .g-box:nth-child(7)::before {
+    filter: hue-rotate(126deg);
+    transform: scale(0.35);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(8) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(144deg) translate(0, 120px);
+  }
+  .g-box:nth-child(8)::before {
+    filter: hue-rotate(144deg);
+    transform: scale(0.4);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(9) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(162deg) translate(0, 120px);
+  }
+  .g-box:nth-child(9)::before {
+    filter: hue-rotate(162deg);
+    transform: scale(0.45);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(10) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(180deg) translate(0, 120px);
+  }
+  .g-box:nth-child(10)::before {
+    filter: hue-rotate(180deg);
+    transform: scale(0.5);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(11) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(198deg) translate(0, 120px);
+  }
+  .g-box:nth-child(11)::before {
+    filter: hue-rotate(198deg);
+    transform: scale(0.55);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(12) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(216deg) translate(0, 120px);
+  }
+  .g-box:nth-child(12)::before {
+    filter: hue-rotate(216deg);
+    transform: scale(0.6);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(13) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(234deg) translate(0, 120px);
+  }
+  .g-box:nth-child(13)::before {
+    filter: hue-rotate(234deg);
+    transform: scale(0.65);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(14) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(252deg) translate(0, 120px);
+  }
+  .g-box:nth-child(14)::before {
+    filter: hue-rotate(252deg);
+    transform: scale(0.7);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(15) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(270deg) translate(0, 120px);
+  }
+  .g-box:nth-child(15)::before {
+    filter: hue-rotate(270deg);
+    transform: scale(0.75);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(16) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(288deg) translate(0, 120px);
+  }
+  .g-box:nth-child(16)::before {
+    filter: hue-rotate(288deg);
+    transform: scale(0.8);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(17) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(306deg) translate(0, 120px);
+  }
+  .g-box:nth-child(17)::before {
+    filter: hue-rotate(306deg);
+    transform: scale(0.85);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(18) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(324deg) translate(0, 120px);
+  }
+  .g-box:nth-child(18)::before {
+    filter: hue-rotate(324deg);
+    transform: scale(0.9);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(19) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(342deg) translate(0, 120px);
+  }
+  .g-box:nth-child(19)::before {
+    filter: hue-rotate(342deg);
+    transform: scale(0.95);
+    will-change: transform;
+  }
+
+  .g-box:nth-child(20) {
+    --width: 20px;
+    width: var(--width);
+    height: var(--width);
+    margin-top: calc(var(--width) / -2);
+    margin-left: calc(var(--width) / -2);
+    transform: rotate(360deg) translate(0, 120px);
+  }
+  .g-box:nth-child(20)::before {
+    filter: hue-rotate(360deg);
+    transform: scale(1);
+    will-change: transform;
+  }
+
+  .g-steps {
+    animation: rotate 2s steps(20) infinite;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 26、clip-path 实现边框线条动画
+
+:::tip 属性介绍
+clip-path: CSS 属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。剪切区域是被引用内嵌的 URL 定义的路径或者外部 SVG 的路径。
+:::
+
+[MDN:clip-path](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
+
+<img src="../../imgs/animate29.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div>button</div>
+
+<style>
+  div {
+    position: relative;
+    margin: 200px auto;
+    width: 120px;
+    line-height: 64px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    border: 2px solid gold;
+    border-radius: 10px;
+    background: gold;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  div:hover {
+    filter: contrast(1.1);
+  }
+  div:active {
+    filter: contrast(0.9);
+  }
+  div::before,
+  div::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid gold;
+    transition: all 0.5s;
+    animation: clippath 3s infinite linear;
+    border-radius: 10px;
+  }
+  div::after {
+    animation: clippath 3s infinite -1.5s linear;
+  }
+  @keyframes clippath {
+    0%,
+    100% {
+      clip-path: inset(0 0 98% 0);
+    }
+    25% {
+      clip-path: inset(0 98% 0 0);
+    }
+    50% {
+      clip-path: inset(98% 0 0 0);
+    }
+    75% {
+      clip-path: inset(0 0 0 98%);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 27、纯 CSS 实现文字融合快闪切换效果
+
+<img src="../../imgs/animate30.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="word">北国风光</div>
+  <div class="word">千里冰封</div>
+  <div class="word">万里雪飘</div>
+  <div class="word">望长城内外</div>
+  <div class="word">分外妖娆</div>
+</div>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    font-size: 60px;
+    filter: contrast(15);
+    overflow: hidden;
+  }
+  .word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: change 8s infinite ease-in-out;
+  }
+  .word:nth-child(1) {
+    animation-delay: -8s;
+  }
+  .word:nth-child(2) {
+    animation-delay: -6.4s;
+  }
+  .word:nth-child(3) {
+    animation-delay: -4.8s;
+  }
+  .word:nth-child(4) {
+    animation-delay: -3.2s;
+  }
+  .word:nth-child(5) {
+    animation-delay: -1.6s;
+  }
+  @keyframes change {
+    0%,
+    5%,
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+    50%,
+    80% {
+      filter: blur(80px);
+      opacity: 0;
+    }
+  }
+</style>
+```
+
+</details>
+
+## 28、纯 CSS 实现 360° 饼图
+
+<img src="../../imgs/animate31.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="left">
+    <div class="left-pie"></div>
+  </div>
+  <div class="right">
+    <div class="right-pie"></div>
+  </div>
+</div>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background: #000;
+  }
+  .container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 200px auto;
+  }
+  .left {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    width: 100px;
+    height: 200px;
+    overflow: hidden;
+  }
+  .left-pie {
+    position: relative;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(90deg, transparent 50%, yellowgreen 50%);
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform: rotate(-180deg);
+    animation: rotate 4s infinite linear;
+  }
+  .right {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 200px;
+    overflow: hidden;
+  }
+  .right-pie {
+    position: relative;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(
+      90deg,
+      yellowgreen 0%,
+      yellowgreen 50%,
+      transparent 50%
+    );
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform: rotate(-180deg);
+    animation: rotate 4s infinite 2s linear;
+  }
+  @keyframes rotate {
+    50% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 29、原生 JS 实现一个翻页时钟
+
+<img src="../../imgs/animate33.gif" class="theme-image set-bg" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="show">
+  <ul class="time">
+    <li>
+      <div class="upBox beforeTime"></div>
+      <div class="downBox beforeTime"></div>
+      <div class="upBox afterTime"></div>
+      <div class="downBox afterTime"></div>
+    </li>
+    <li>:</li>
+    <li>
+      <div class="upBox beforeTime"></div>
+      <div class="downBox beforeTime"></div>
+      <div class="upBox afterTime"></div>
+      <div class="downBox afterTime"></div>
+    </li>
+    <li>:</li>
+    <li>
+      <div class="upBox beforeTime"></div>
+      <div class="downBox beforeTime"></div>
+      <div class="upBox afterTime"></div>
+      <div class="downBox afterTime"></div>
+    </li>
+  </ul>
+</div>
+
+<style>
+  * {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .show {
+    width: 800px;
+    height: 300px;
+    margin: 100px auto;
+    position: relative;
+    background: #000;
+    color: #fff;
+  }
+  .time {
+    display: flex;
+    flex: 1;
+    font-size: 160px;
+    text-align: center;
+    line-height: 300px;
+    padding: 0 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .beforeTime {
+    z-index: 100;
+  }
+  .time li:nth-child(2n) {
+    flex: 1;
+  }
+  .time li:nth-child(2n + 1) {
+    flex: 4;
+    background: #3b3d3b;
+    position: relative;
+    height: 200px;
+    line-height: 200px;
+    margin: auto 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 3px #fff;
+  }
+  .time li:nth-child(2n + 1) .upBox,
+  .time li:nth-child(2n + 1) .downBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+  .time li:nth-child(2n + 1) .upBox {
+    top: 0;
+    bottom: 50%;
+    box-sizing: border-box;
+    border-bottom: 3px solid #3b3d3b;
+    background: #3b3d3b;
+    transform-origin: bottom;
+  }
+  .time li:nth-child(2n + 1) .downBox {
+    top: 50%;
+    bottom: 0;
+    line-height: 0;
+    box-sizing: border-box;
+    background: #3b3d3b;
+    overflow: hidden;
+    transform-origin: top;
+  }
+</style>
+
+<script>
+//格式化时间
+      const formatTime = (time) => {
+        if (time < 10) time = "0" + time;
+        return time;
+      };
+      //翻转前面下面的盒子向上180deg
+      const rotateUp = (ele, time, n) => {
+        //传入的为一开始翻转的元素，即前面下面的盒子，以及新时间，以及第几个li盒子
+        let rotateDeg = 0;
+        ele.style.zIndex = 50;
+        //这个是所有上面的盒子
+        const allUpBox = document
+          .querySelector(`li:nth-child(${n})`)
+          .querySelectorAll(".upBox");
+        //所有前面的盒子
+        const beforeTime = document
+          .querySelector(`li:nth-child(${n})`)
+          .querySelectorAll(".beforeTime");
+        // 让上面后面的盒子先不可见，然后设置为270°
+        allUpBox[1].style.display = "none";
+        allUpBox[1].transform = `rotateX(270deg)`;
+        const animation = () => {
+          rotateDeg += 3;
+          ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
+          if (rotateDeg == 90) {
+            //让它更新为最近时间后隐藏
+            ele.innerHTML = time;
+            ele.style.zIndex = -1;
+            //让刚刚上面隐藏的盒子重新显示出来并且完成90°-180°的旋转
+            allUpBox[1].style.display = "block";
+            allUpBox[0].style.zIndex = 1;
+            rotateDown(allUpBox[1]);
+            allUpBox[1].style.zIndex = 1;
+          }
+          if (rotateDeg == 150) {
+            beforeTime[0].innerHTML = time;
+          }
+          if (rotateDeg < 180) {
+            requestAnimationFrame(animation);
+          }
+        };
+        animation();
+      };
+
+      const rotateDown = (ele) => {
+        let rotateDeg = 270;
+        const animation = () => {
+          rotateDeg += 3;
+          ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
+          if (rotateDeg < 360) {
+            requestAnimationFrame(animation);
+          }
+        };
+        animation();
+      };
+      let time = new Date();
+      let oldHour = time.getHours();
+      var oldMinute = time.getMinutes();
+      var oldSecond = time.getSeconds();
+      document
+        .querySelector("li:nth-child(1)")
+        .querySelectorAll(".beforeTime")
+        .forEach((ele) => (ele.innerHTML = formatTime(oldHour)));
+      document
+        .querySelector(" li:nth-child(3)")
+        .querySelectorAll(".beforeTime")
+        .forEach((ele) => (ele.innerHTML = formatTime(oldMinute)));
+      document
+        .querySelector(" li:nth-child(5)")
+        .querySelectorAll(".beforeTime")
+        .forEach((ele) => (ele.innerHTML = formatTime(oldSecond)));
+      const changeTime = () => {
+        let time = new Date();
+        let hour = time.getHours();
+        let minute = time.getMinutes();
+        let second = time.getSeconds();
+        const setHourBox = document
+          .querySelector("li:nth-child(1)")
+          .querySelectorAll(".afterTime");
+        if (
+          !setHourBox[0].innerHTML ||
+          setHourBox[0].innerHTML != formatTime(hour)
+        ) {
+          if (setHourBox[0].innerHTML)
+            rotateUp(
+              document
+                .querySelector("li:nth-child(1)")
+                .querySelectorAll(".beforeTime")[1],
+              formatTime(hour),
+              1
+            );
+          setHourBox.forEach((ele) => (ele.innerHTML = formatTime(hour)));
+        }
+        const setMinuteBox = document
+          .querySelector("li:nth-child(3)")
+          .querySelectorAll(".afterTime");
+        if (
+          !setMinuteBox[0].innerHTML ||
+          setMinuteBox[0].innerHTML != formatTime(minute)
+        ) {
+          if (setMinuteBox[0].innerHTML)
+            rotateUp(
+              document
+                .querySelector("li:nth-child(3)")
+                .querySelectorAll(".beforeTime")[1],
+              formatTime(minute),
+              3
+            );
+          setMinuteBox.forEach((ele) => (ele.innerHTML = formatTime(minute)));
+        }
+        const setSecondBox = document
+          .querySelector("li:nth-child(5)")
+          .querySelectorAll(".afterTime");
+        setSecondBox.forEach((ele) => (ele.innerHTML = formatTime(second)));
+        rotateUp(
+          document
+            .querySelector("li:nth-child(5)")
+            .querySelectorAll(".beforeTime")[1],
+          formatTime(second),
+          5
+        );
+
+        setTimeout(changeTime, 1000);
+      };
+      changeTime();
+
 </script>
 ```
 

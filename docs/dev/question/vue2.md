@@ -1,6 +1,14 @@
+<!--
+ * @Author: rk
+ * @Description:
+ * @Date: 2024-03-01 10:35:04
+ * @LastEditors: rk
+ * @LastEditTime: 2024-03-18 19:20:51
+-->
+
 ---
-outline: deep
----
+
+## outline: deep
 
 # 开发常见问题-vue2
 
@@ -15,7 +23,7 @@ outline: deep
 
 在做后台管理系统项目时，导出功能后端一般返回文件流或者链接，前端进行相关处理，今天只说文件流相关内容，之前项目中所有的文件名称都是前端进行拼接的，像 xxxx-20231002122415.xlsx 等等，那下载时文件名称如何从后台获取呢？
 
-### 8.1 首先需要后台配置
+### 2.1 首先需要后台配置
 
 在响应标头中我们可以看到 Content-Disposition:attachment;filename=xxxxx.xlsx 信息，filename 后边的就是后台返回的文件名称，一般是进行转码的，但是前端一般是拿不到的，需要后端进行配置：
 
@@ -23,7 +31,7 @@ outline: deep
 response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
 ```
 
-### 8.2 配置好后，可以看到相应头部有 Access-Control-Expose-Headers 信息，这个时候可以从 header 中拿到该信息，
+### 2.2 配置好后，可以看到相应头部有 Access-Control-Expose-Headers 信息，这个时候可以从 header 中拿到该信息，
 
 <img src="../../imgs/question5.png" class="theme-image" />
 
