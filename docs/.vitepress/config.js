@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-26 18:29:50
+ * @LastEditTime: 2024-03-27 15:38:52
  */
 module.exports = {
   title: "easy-coding",
@@ -245,8 +245,8 @@ module.exports = {
                       link: "/dev/question/css/Vue无法换行的问题",
                     },
                     {
-                      text: "常用不熟悉",
-                      link: "/dev/question/css/常用不熟悉",
+                      text: "其他",
+                      link: "/dev/question/css/其他",
                     },
                   ],
                 },
