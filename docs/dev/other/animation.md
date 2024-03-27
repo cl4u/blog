@@ -4991,133 +4991,719 @@ clip-path: CSS 属性可以创建一个只有元素的部分区域可以显示�
 </style>
 
 <script>
-//格式化时间
-      const formatTime = (time) => {
-        if (time < 10) time = "0" + time;
-        return time;
-      };
-      //翻转前面下面的盒子向上180deg
-      const rotateUp = (ele, time, n) => {
-        //传入的为一开始翻转的元素，即前面下面的盒子，以及新时间，以及第几个li盒子
-        let rotateDeg = 0;
-        ele.style.zIndex = 50;
-        //这个是所有上面的盒子
-        const allUpBox = document
-          .querySelector(`li:nth-child(${n})`)
-          .querySelectorAll(".upBox");
-        //所有前面的盒子
-        const beforeTime = document
-          .querySelector(`li:nth-child(${n})`)
-          .querySelectorAll(".beforeTime");
-        // 让上面后面的盒子先不可见，然后设置为270°
-        allUpBox[1].style.display = "none";
-        allUpBox[1].transform = `rotateX(270deg)`;
-        const animation = () => {
-          rotateDeg += 3;
-          ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
-          if (rotateDeg == 90) {
-            //让它更新为最近时间后隐藏
-            ele.innerHTML = time;
-            ele.style.zIndex = -1;
-            //让刚刚上面隐藏的盒子重新显示出来并且完成90°-180°的旋转
-            allUpBox[1].style.display = "block";
-            allUpBox[0].style.zIndex = 1;
-            rotateDown(allUpBox[1]);
-            allUpBox[1].style.zIndex = 1;
-          }
-          if (rotateDeg == 150) {
-            beforeTime[0].innerHTML = time;
-          }
-          if (rotateDeg < 180) {
-            requestAnimationFrame(animation);
-          }
-        };
-        animation();
-      };
+  //格式化时间
+  const formatTime = (time) => {
+    if (time < 10) time = "0" + time;
+    return time;
+  };
+  //翻转前面下面的盒子向上180deg
+  const rotateUp = (ele, time, n) => {
+    //传入的为一开始翻转的元素，即前面下面的盒子，以及新时间，以及第几个li盒子
+    let rotateDeg = 0;
+    ele.style.zIndex = 50;
+    //这个是所有上面的盒子
+    const allUpBox = document
+      .querySelector(`li:nth-child(${n})`)
+      .querySelectorAll(".upBox");
+    //所有前面的盒子
+    const beforeTime = document
+      .querySelector(`li:nth-child(${n})`)
+      .querySelectorAll(".beforeTime");
+    // 让上面后面的盒子先不可见，然后设置为270°
+    allUpBox[1].style.display = "none";
+    allUpBox[1].transform = `rotateX(270deg)`;
+    const animation = () => {
+      rotateDeg += 3;
+      ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
+      if (rotateDeg == 90) {
+        //让它更新为最近时间后隐藏
+        ele.innerHTML = time;
+        ele.style.zIndex = -1;
+        //让刚刚上面隐藏的盒子重新显示出来并且完成90°-180°的旋转
+        allUpBox[1].style.display = "block";
+        allUpBox[0].style.zIndex = 1;
+        rotateDown(allUpBox[1]);
+        allUpBox[1].style.zIndex = 1;
+      }
+      if (rotateDeg == 150) {
+        beforeTime[0].innerHTML = time;
+      }
+      if (rotateDeg < 180) {
+        requestAnimationFrame(animation);
+      }
+    };
+    animation();
+  };
 
-      const rotateDown = (ele) => {
-        let rotateDeg = 270;
-        const animation = () => {
-          rotateDeg += 3;
-          ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
-          if (rotateDeg < 360) {
-            requestAnimationFrame(animation);
-          }
-        };
-        animation();
-      };
-      let time = new Date();
-      let oldHour = time.getHours();
-      var oldMinute = time.getMinutes();
-      var oldSecond = time.getSeconds();
-      document
-        .querySelector("li:nth-child(1)")
-        .querySelectorAll(".beforeTime")
-        .forEach((ele) => (ele.innerHTML = formatTime(oldHour)));
-      document
-        .querySelector(" li:nth-child(3)")
-        .querySelectorAll(".beforeTime")
-        .forEach((ele) => (ele.innerHTML = formatTime(oldMinute)));
-      document
-        .querySelector(" li:nth-child(5)")
-        .querySelectorAll(".beforeTime")
-        .forEach((ele) => (ele.innerHTML = formatTime(oldSecond)));
-      const changeTime = () => {
-        let time = new Date();
-        let hour = time.getHours();
-        let minute = time.getMinutes();
-        let second = time.getSeconds();
-        const setHourBox = document
-          .querySelector("li:nth-child(1)")
-          .querySelectorAll(".afterTime");
-        if (
-          !setHourBox[0].innerHTML ||
-          setHourBox[0].innerHTML != formatTime(hour)
-        ) {
-          if (setHourBox[0].innerHTML)
-            rotateUp(
-              document
-                .querySelector("li:nth-child(1)")
-                .querySelectorAll(".beforeTime")[1],
-              formatTime(hour),
-              1
-            );
-          setHourBox.forEach((ele) => (ele.innerHTML = formatTime(hour)));
-        }
-        const setMinuteBox = document
-          .querySelector("li:nth-child(3)")
-          .querySelectorAll(".afterTime");
-        if (
-          !setMinuteBox[0].innerHTML ||
-          setMinuteBox[0].innerHTML != formatTime(minute)
-        ) {
-          if (setMinuteBox[0].innerHTML)
-            rotateUp(
-              document
-                .querySelector("li:nth-child(3)")
-                .querySelectorAll(".beforeTime")[1],
-              formatTime(minute),
-              3
-            );
-          setMinuteBox.forEach((ele) => (ele.innerHTML = formatTime(minute)));
-        }
-        const setSecondBox = document
-          .querySelector("li:nth-child(5)")
-          .querySelectorAll(".afterTime");
-        setSecondBox.forEach((ele) => (ele.innerHTML = formatTime(second)));
+  const rotateDown = (ele) => {
+    let rotateDeg = 270;
+    const animation = () => {
+      rotateDeg += 3;
+      ele.style.transform = `perspective(500px) rotateX(${rotateDeg}deg)`;
+      if (rotateDeg < 360) {
+        requestAnimationFrame(animation);
+      }
+    };
+    animation();
+  };
+  let time = new Date();
+  let oldHour = time.getHours();
+  var oldMinute = time.getMinutes();
+  var oldSecond = time.getSeconds();
+  document
+    .querySelector("li:nth-child(1)")
+    .querySelectorAll(".beforeTime")
+    .forEach((ele) => (ele.innerHTML = formatTime(oldHour)));
+  document
+    .querySelector(" li:nth-child(3)")
+    .querySelectorAll(".beforeTime")
+    .forEach((ele) => (ele.innerHTML = formatTime(oldMinute)));
+  document
+    .querySelector(" li:nth-child(5)")
+    .querySelectorAll(".beforeTime")
+    .forEach((ele) => (ele.innerHTML = formatTime(oldSecond)));
+  const changeTime = () => {
+    let time = new Date();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let second = time.getSeconds();
+    const setHourBox = document
+      .querySelector("li:nth-child(1)")
+      .querySelectorAll(".afterTime");
+    if (
+      !setHourBox[0].innerHTML ||
+      setHourBox[0].innerHTML != formatTime(hour)
+    ) {
+      if (setHourBox[0].innerHTML)
         rotateUp(
           document
-            .querySelector("li:nth-child(5)")
+            .querySelector("li:nth-child(1)")
             .querySelectorAll(".beforeTime")[1],
-          formatTime(second),
-          5
+          formatTime(hour),
+          1
         );
+      setHourBox.forEach((ele) => (ele.innerHTML = formatTime(hour)));
+    }
+    const setMinuteBox = document
+      .querySelector("li:nth-child(3)")
+      .querySelectorAll(".afterTime");
+    if (
+      !setMinuteBox[0].innerHTML ||
+      setMinuteBox[0].innerHTML != formatTime(minute)
+    ) {
+      if (setMinuteBox[0].innerHTML)
+        rotateUp(
+          document
+            .querySelector("li:nth-child(3)")
+            .querySelectorAll(".beforeTime")[1],
+          formatTime(minute),
+          3
+        );
+      setMinuteBox.forEach((ele) => (ele.innerHTML = formatTime(minute)));
+    }
+    const setSecondBox = document
+      .querySelector("li:nth-child(5)")
+      .querySelectorAll(".afterTime");
+    setSecondBox.forEach((ele) => (ele.innerHTML = formatTime(second)));
+    rotateUp(
+      document
+        .querySelector("li:nth-child(5)")
+        .querySelectorAll(".beforeTime")[1],
+      formatTime(second),
+      5
+    );
 
-        setTimeout(changeTime, 1000);
-      };
-      changeTime();
-
+    setTimeout(changeTime, 1000);
+  };
+  changeTime();
 </script>
+```
+
+</details>
+
+## 30、border 长度变化
+
+<img src="../../imgs/animate34.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="border-radius"></div>
+
+<style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  :root {
+    --borderColor: #03a9f3;
+  }
+  div {
+    position: relative;
+    width: 140px;
+    height: 64px;
+    margin: auto;
+    border: 1px solid #03a9f3;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transition: 0.3s ease-in-out;
+    }
+
+    &::before {
+      top: -5px;
+      left: -5px;
+      border-top: 1px solid var(--borderColor);
+      border-left: 1px solid var(--borderColor);
+    }
+
+    &::after {
+      right: -5px;
+      bottom: -5px;
+      border-bottom: 1px solid var(--borderColor);
+      border-right: 1px solid var(--borderColor);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: calc(100% + 9px);
+      height: calc(100% + 9px);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 31、虚线边框动画
+
+<img src="../../imgs/animate35.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="gradient"></div>
+<div class="outline"></div>
+
+<style>
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  div {
+    position: relative;
+    width: 140px;
+    height: 64px;
+    margin: auto;
+  }
+
+  .gradient {
+    background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x, linear-gradient(
+          90deg,
+          #333 50%,
+          transparent 0
+        ) repeat-x, linear-gradient(0deg, #333 50%, transparent 0) repeat-y, linear-gradient(
+          0deg,
+          #333 50%,
+          transparent 0
+        ) repeat-y;
+    background-size: 4px 1px, 4px 1px, 1px 4px, 1px 4px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    cursor: pointer;
+  }
+  .gradient:hover {
+    animation: linearGradientMove 0.3s infinite linear;
+  }
+  .outline {
+    outline: 1px solid #333;
+    outline-offset: -1px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+  }
+  .outline:hover {
+    outline: 1px solid transparent;
+    background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x, linear-gradient(
+          90deg,
+          #333 50%,
+          transparent 0
+        ) repeat-x, linear-gradient(0deg, #333 50%, transparent 0) repeat-y, linear-gradient(
+          0deg,
+          #333 50%,
+          transparent 0
+        ) repeat-y;
+    background-size: 4px 1px, 4px 1px, 1px 4px, 1px 4px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    animation: linearGradientMove 0.3s infinite linear;
+  }
+  @keyframes linearGradientMove {
+    100% {
+      background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+    }
+  }
+</style>
+```
+
+</details>
+
+## 32、弹簧效果
+
+<img src="../../imgs/animate36.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="box">
+    <span style="--tt: 1"></span>
+    <span style="--tt: 2"></span>
+    <span style="--tt: 3"></span>
+    <span style="--tt: 4"></span>
+    <span style="--tt: 5"></span>
+    <span style="--tt: 6"></span>
+    <span style="--tt: 7"></span>
+    <span style="--tt: 8"></span>
+    <span style="--tt: 9"></span>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 580px;
+    margin: 50px auto;
+    border: 1px solid violet;
+    position: relative;
+  }
+  .box {
+    margin: 200px auto 0;
+    width: 50px;
+    height: 50px;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateX(50deg) translateZ(50px);
+  }
+  span {
+    position: absolute;
+    top: calc(-18px * var(--tt));
+    left: calc(-18px * var(--tt));
+    bottom: calc(-18px * var(--tt));
+    right: calc(-18px * var(--tt));
+    border: 8px solid darkorange;
+    border-radius: 50%;
+    animation: move 1.5s ease-in-out infinite alternate;
+    animation-delay: calc(var(--tt) * 0.1s);
+  }
+  @keyframes move {
+    0%,
+    100% {
+      transform: translateZ(0px);
+    }
+    50% {
+      transform: translateZ(-100px);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 33、篮球弹跳效果
+
+<img src="../../imgs/animate37.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="box">
+    <div id="suport">
+      <div id="smash">
+        <div id="translateShadow">
+          <div id="light"></div>
+          <div id="rotateImg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 600px;
+    margin: 50px auto;
+    border: 1px solid magenta;
+    position: relative;
+  }
+  .box {
+    width: 100%;
+    height: 520px;
+    text-align: center;
+    position: relative;
+  }
+  #suport {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+  }
+  #smash {
+    animation: smash 1s ease-in-out infinite alternate;
+    transform-origin: bottom;
+  }
+  @keyframes smash {
+    0% {
+      transform: scaleY(0.7);
+    }
+    15% {
+      transform: scaleY(1);
+    }
+  }
+  #translateShadow,
+  #rotateImg,
+  #light {
+    border-radius: 50%;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+  }
+  #light {
+    background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 221, 179, 0.7),
+      rgba(255, 221, 179, 0.5) 10%,
+      transparent 30%,
+      rgba(83, 42, 0, 0.8) 85%
+    );
+    position: absolute;
+    z-index: 1;
+  }
+  #translateShadow {
+    animation: translateShadow 1s ease-out infinite alternate;
+  }
+  @keyframes translateShadow {
+    0% {
+      transform: translateY(0);
+      box-shadow: 40px 40px 10px #444466;
+    }
+    100% {
+      transform: translateY(-205px);
+      box-shadow: 40px 350px 250px #444466;
+    }
+  }
+  #rotateImg {
+    background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='75 75 251 251' fill='rgb(83,42,0)'><path d='M313.3,145.3c-14.4-29.3-38.8-50.5-67.1-61.6c-4.6-1.7-16.2-5.1-21.3-6.3	c-26.3-5.3-54.5-2.3-80.4,10.4c-30.2,14.8-52.9,40.6-63.8,72.5c-10.9,31.8-8.7,66,6.2,96.1l0.1,0.2c2.1,4.2,4.4,8.3,6.9,12.2l0,0	c0,0,0,0,0,0c23.6,36.9,64.4,58,106.5,58c18.7,0,37.6-4.1,55.4-12.9c30.2-14.8,52.9-40.6,63.8-72.5 	C330.3,209.6,328.1,175.5,313.3,145.3z M238.3,86.2c25.2,12.5,41.2,36.6,46,68.5c-24.3,0.8-45.4-15.7-67.4-33.1 	c-18.4-14.5-37.3-29.3-58.9-34.2C184.6,77.6,212.8,77.7,238.3,86.2z M85.4,161.9c10.4-30.6,32.2-55.3,61.2-69.6 	c0.9-0.4,1.7-0.8,2.6-1.2c23.6,2.3,44.4,18.6,64.6,34.5c21.4,16.9,43.4,34.1,68.8,34.1c0.8,0,1.5,0,2.3-0.1c1,9.5,1.1,19.7,0.2,30.4 	c-9.8-3.3-19.3-5.9-25.7-7.6c-37.6-9.8-79.7-16.1-112.5-16.7c-24-0.5-53,1.8-66,14.2C81.8,173.9,83.4,167.8,85.4,161.9z M91.4,254.4 	l-0.1-0.2c-10.1-20.5-14.1-42.8-11.9-65l0.5,0.2c5.3-12.9,29-19.5,66.7-18.8c32.5,0.7,74.1,6.8,111.4,16.6 	c10.1,2.6,18.9,5.3,26.5,7.8c-1.2,10.2-3.3,20.4-6.3,30.3c-19.8-8.8-48.7,2.6-81.8,15.7c-32,12.6-68.1,26.8-99.7,23 	C94.9,261,93.1,257.7,91.4,254.4z M187.8,321.2c-34.6-3.6-67-21.9-87.5-51.7c31.8,2.4,66.9-11.4,98-23.7 	c32.4-12.8,60.6-23.9,78.4-15.5c-5.6,17.2-13.6,33.4-23.5,47c-12.8,17.7-34.5,39.5-65.6,43.3L187.8,321.2z M253.5,309.4 	c-15.6,7.7-32.1,11.6-48.4,12.3c36.2-12.4,62.8-49,76.1-88.8c9.1,6.7,14.2,20.1,15.8,40.6C285.7,288.6,270.9,300.9,253.5,309.4z 	 M314.8,239.8c-3.3,9.8-7.8,19-13.3,27.4c-2.4-19.7-8.5-32.6-18.7-39.3c3.1-10.3,5.4-20.8,6.6-31.1c19.2,6.9,29.2,13.2,30.7,17.3 	l0.4-0.2C319.6,222.6,317.7,231.3,314.8,239.8z M290,191.7c1.1-11.3,1-22.1-0.2-32.4c6.8-0.9,13.8-3,21.1-6.8l-2.3-4.5 	c-6.8,3.4-13.2,5.4-19.5,6.3c-1.6-11.1-4.6-21.4-8.8-30.7c-4.6-10.3-10.8-19.2-18.3-26.6c19.5,11.6,36,28.7,46.8,50.5 	c9.3,18.9,13.4,39.4,12.3,59.8C314.9,201.6,302.6,196.1,290,191.7z'/></svg>");
+    background-color: darkorange;
+    background-size: 100%;
+    animation: rotateImg 5s linear infinite;
+  }
+  @keyframes rotateImg {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 34、图片 hover 添加文案介绍
+
+<img src="../../imgs/animate38.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="one">
+    <img src="./bg1.jpg" alt="" />
+    <div class="word">
+      刘亦菲，1987年8月25日出生于湖北省武汉市，华语影视女演员、歌手，毕业于北京电影学院2002级表演系本科
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 580px;
+    margin: 50px auto;
+    border: 1px solid khaki;
+    position: relative;
+  }
+  .one {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    margin: 100px auto 0;
+  }
+  img {
+    width: 500px;
+    height: 300px;
+  }
+  .word {
+    display: none;
+    width: 500px;
+    height: 300px;
+    background: rgba(145, 223, 100, 0.771);
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    padding: 80px 50px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "microsoft yahei";
+    line-height: 30px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .one:hover .word {
+    display: block;
+  }
+  .one .word::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 120px;
+    height: 1px;
+    background: #fff;
+    bottom: 80px;
+    left: 190px;
+  }
+</style>
+```
+
+</details>
+
+## 35、太阳、地球、月亮围绕旋转
+
+<img src="../../imgs/animate39.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="box">
+    <div class="sunline">
+      <div class="sun"></div>
+      <div class="earthline">
+        <div class="earth"></div>
+        <div class="moon"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 580px;
+    margin: 100px auto 0;
+    border: 1px solid blueviolet;
+    position: relative;
+  }
+  .box {
+    position: relative;
+    padding: 1px;
+    height: 300px;
+    width: 300px;
+    margin-left: 200px;
+    transform: scale(0.5);
+  }
+  .sunline {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: 2px solid goldenrod;
+    border-radius: 50%;
+    margin: 50px 0 0 50px;
+    animation: rotate 10s infinite linear;
+  }
+  .sun {
+    width: 100px;
+    height: 100px;
+    margin: 50% 50%;
+    background: red;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px red, -5px -5px 10px red, 5px -5px 10px red, -5px
+        5px 10px red;
+  }
+  .earthline {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    margin: -100px -100px 0 0;
+    border: 1px solid forestgreen;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+  }
+  .earth {
+    margin: 50% 50%;
+    width: 50px;
+    height: 50px;
+    background: blue;
+    border-radius: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .moon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    background: darkblue;
+    border-radius: 50%;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 40、跳动的心
+
+<img src="../../imgs/animate40.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```html
+<div class="container">
+  <div class="heart"></div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 580px;
+    border: 1px solid chartreuse;
+    margin: 100px auto 0;
+  }
+  .heart {
+    width: 100px;
+    height: 90px;
+    margin: 150px auto;
+    position: relative;
+    animation: scale 1s infinite;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: red;
+  }
+  .heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  .heart::after {
+    left: 0px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  @keyframes scale {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(2);
+    }
+  }
+</style>
+```
+
+</details>
+
+## 41、鼠标悬浮图标旋转一周
+
+<img src="../../imgs/animate41.gif" class="theme-image" />
+
+<details>
+  <summary>查看代码</summary>
+
+```js
+<div class="container">
+  <div class="box">
+    <svg
+      t="1711522157231"
+      class="icon"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="4307"
+      width="48"
+      height="48"
+    >
+      <path
+        d="M937.4 423.9c-84 0-165.7-27.3-232.9-77.8v352.3c0 179.9-138.6 325.6-309.6 325.6S85.3 878.3 85.3 698.4c0-179.9 138.6-325.6 309.6-325.6 17.1 0 33.7 1.5 49.9 4.3v186.6c-15.5-6.1-32-9.2-48.6-9.2-76.3 0-138.2 65-138.2 145.3 0 80.2 61.9 145.3 138.2 145.3 76.2 0 138.1-65.1 138.1-145.3V0H707c0 134.5 103.7 243.5 231.6 243.5v180.3l-1.2 0.1"
+        p-id="4308"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 1000px;
+    height: 500px;
+    margin: 100px auto;
+    border: 1px solid aquamarine;
+    position: relative;
+  }
+  .box {
+    width: 300px;
+    height: 300px;
+    margin: 100px auto;
+    background: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  svg {
+    transition: all 1s;
+  }
+  .box:hover {
+    background: blueviolet;
+  }
+  .box:hover svg {
+    transform: rotateY(1turn);
+  }
+</style>
 ```
 
 </details>

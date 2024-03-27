@@ -5,11 +5,11 @@
 ## 目录结构
 
 ```bash
-├─ public                     # 静态资源 不参与打包
+├──public                     # 静态资源 不参与打包
 │   ├─ plug                   # 静态资源
 │   ├─ favicon.ico            # favicon图标
 │   └─ index.html             # html模板
-├─ src                        # 项目源代码
+├──src                        # 项目源代码
 │   ├─ api                    # 所有请求
 │   │   ├─ apiList            # 模块化Api接口
 │   │   ├─ index.js           # 请求封装

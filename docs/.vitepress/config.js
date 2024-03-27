@@ -3,7 +3,7 @@
  * @Description:
  * @Date: 2024-02-29 16:16:47
  * @LastEditors: rk
- * @LastEditTime: 2024-03-18 19:19:53
+ * @LastEditTime: 2024-03-26 18:29:50
  */
 module.exports = {
   title: "easy-coding",
@@ -45,16 +45,19 @@ module.exports = {
         items: [
           { text: "模板介绍", link: "/doc/template/vue2/introduce" },
           { text: "规范", link: "/doc/rule/layout/index" },
-          { text: "其他", link: "/doc/other/nvm/index" },
+          { text: "相关配置", link: "/doc/other/plugin/git" },
         ],
       },
       {
         text: "开发",
         items: [
           { text: "工具函数", link: "/dev/function/utils/date" },
-          { text: "常见问题", link: "/dev/question/html" },
-          { text: "文章", link: "/dev/article/html/index" },
-          { text: "其他", link: "/dev/other/theme" },
+          { text: "常见问题", link: "/dev/question/css/列表边框重合问题" },
+          {
+            text: "文章",
+            link: "/dev/article/element/记录elementUI中表格合并",
+          },
+          { text: "动画", link: "/dev/other/card" },
         ],
       },
       // {
@@ -137,10 +140,6 @@ module.exports = {
         {
           items: [
             {
-              text: "nvm安装",
-              link: "/doc/other/nvm/index",
-            },
-            {
               text: "vscode配置",
               collapsible: true, // 是不是可以动态展开
               collapsed: false, // 默认是不是展开
@@ -188,10 +187,6 @@ module.exports = {
               collapsible: true, // 是不是可以动态展开
               collapsed: false, // 默认是不是展开
               items: [
-                // {
-                //   text: "html",
-                //   link: "/dev/question/html",
-                // },
                 {
                   text: "css",
                   collapsible: true, // 是不是可以动态展开
@@ -245,12 +240,20 @@ module.exports = {
                       text: "长方形中包含一个直角梯形",
                       link: "/dev/question/css/长方形中包含一个直角梯形",
                     },
+                    {
+                      text: "Vue无法换行的问题",
+                      link: "/dev/question/css/Vue无法换行的问题",
+                    },
+                    {
+                      text: "常用不熟悉",
+                      link: "/dev/question/css/常用不熟悉",
+                    },
                   ],
                 },
                 {
                   text: "scss",
                   collapsible: true, // 是不是可以动态展开
-                  collapsed: false, // 默认是不是展开
+                  collapsed: true, // 默认是不是展开
                   items: [
                     {
                       text: "生成margin、padding值",
@@ -260,7 +263,18 @@ module.exports = {
                 },
                 {
                   text: "js",
-                  link: "/dev/question/js",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: true, // 默认是不是展开
+                  items: [
+                    {
+                      text: "时间相关",
+                      link: "/dev/question/js/时间相关.md",
+                    },
+                    {
+                      text: "数组相关",
+                      link: "/dev/question/js/数组相关.md",
+                    },
+                  ],
                 },
                 {
                   text: "es6",
@@ -282,6 +296,10 @@ module.exports = {
                   text: "vue3",
                   link: "/dev/question/vue3",
                 },
+                {
+                  text: "兼容适配问题",
+                  link: "/dev/question/兼容适配问题",
+                },
               ],
             },
           ],
@@ -295,29 +313,6 @@ module.exports = {
               collapsible: true, // 是不是可以动态展开
               collapsed: false, // 默认是不是展开
               items: [
-                {
-                  text: "html",
-                  link: "/dev/article/html/index",
-                },
-                {
-                  text: "css",
-                  collapsible: true, // 是不是可以动态展开
-                  collapsed: false, // 默认是不是展开
-                  items: [
-                    {
-                      text: "html",
-                      link: "/dev/article/css/index",
-                    },
-                  ],
-                },
-                {
-                  text: "js",
-                  link: "/dev/article/js/index",
-                },
-                {
-                  text: "es6",
-                  link: "/dev/article/es6/index",
-                },
                 {
                   text: "element",
                   collapsible: true, // 是不是可以动态展开
@@ -347,11 +342,41 @@ module.exports = {
                 },
                 {
                   text: "vue2",
-                  link: "/dev/article/vue2/index",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: true, // 默认是不是展开
+                  items: [
+                    {
+                      text: "主题切换",
+                      link: "/dev/article/vue2/主题切换",
+                    },
+                  ],
                 },
                 {
                   text: "vue3",
-                  link: "/dev/article/vue3/index",
+                  collapsible: true, // 是不是可以动态展开
+                  collapsed: true, // 默认是不是展开
+                  items: [
+                    {
+                      text: "主题切换",
+                      link: "/dev/article/vue3/主题切换",
+                    },
+                  ],
+                },
+                {
+                  text: "正则表达式",
+                  link: "/dev/article/正则表达式/index",
+                },
+                {
+                  text: "nvm使用",
+                  link: "/dev/article/nvm/index",
+                },
+                {
+                  text: "npm发包",
+                  link: "/dev/article/npm/index",
+                },
+                {
+                  text: "搭建脚手架",
+                  link: "/dev/article/cli/index",
                 },
               ],
             },
@@ -360,31 +385,16 @@ module.exports = {
       ],
       "/dev/other": [
         {
-          items: [
-            {
-              text: "主题切换",
-              link: "/dev/other/theme",
-            },
-            {
-              text: "动画",
-              collapsible: true, // 是不是可以动态展开
-              collapsed: false, // 默认是不是展开
-              items: [
-                {
-                  text: "卡片动画",
-                  link: "/dev/other/card",
-                },
-                {
-                  text: "大屏动画",
-                  link: "/dev/other/screen",
-                },
-                {
-                  text: "其他动画",
-                  link: "/dev/other/animation",
-                },
-              ],
-            },
-          ],
+          text: "卡片动画",
+          link: "/dev/other/card",
+        },
+        {
+          text: "大屏动画",
+          link: "/dev/other/screen",
+        },
+        {
+          text: "其他动画",
+          link: "/dev/other/animation",
         },
       ],
 
