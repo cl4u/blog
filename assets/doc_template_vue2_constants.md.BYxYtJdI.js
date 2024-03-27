@@ -1,0 +1,8 @@
+import{_ as a,c as s,o as n,a5 as e}from"./chunks/framework.t2hUVk8X.js";const m=JSON.parse('{"title":"constants 目录文件介绍","description":"","frontmatter":{},"headers":[],"relativePath":"doc/template/vue2/constants.md","filePath":"doc/template/vue2/constants.md","lastUpdated":1709812522000}'),t={name:"doc/template/vue2/constants.md"},o=e(`<h1 id="constants-目录文件介绍" tabindex="-1">constants 目录文件介绍 <a class="header-anchor" href="#constants-目录文件介绍" aria-label="Permalink to &quot;constants 目录文件介绍&quot;">​</a></h1><p>该目录主要存放的是常量。主要包含系统公共常量和路由配置。</p><h2 id="index" tabindex="-1">index <a class="header-anchor" href="#index" aria-label="Permalink to &quot;index&quot;">​</a></h2><p>全局常量字典存放，以 label 和 value 键值对存储</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code"><code><span class="line"><span>// 时间周期类型</span></span>
+<span class="line"><span>export const PERIOD_TYPE_LIST = [</span></span>
+<span class="line"><span>  { label: &quot;日&quot;, value: 7 },</span></span>
+<span class="line"><span>  { label: &quot;旬&quot;, value: 8 },</span></span>
+<span class="line"><span>  { label: &quot;月&quot;, value: 3 },</span></span>
+<span class="line"><span>  { label: &quot;季&quot;, value: 2 },</span></span>
+<span class="line"><span>  { label: &quot;年&quot;, value: 1 },</span></span>
+<span class="line"><span>];</span></span></code></pre></div><h2 id="router" tabindex="-1">router <a class="header-anchor" href="#router" aria-label="Permalink to &quot;router&quot;">​</a></h2><p>路由声明文件，一般是系统中没有做菜单配置，所以由前端静态编写。</p>`,7),l=[o];function p(c,i,r,d,u,_){return n(),s("div",null,l)}const b=a(t,[["render",p]]);export{m as __pageData,b as default};

@@ -1,0 +1,43 @@
+import{_ as s,c as n,o as a,a5 as p}from"./chunks/framework.t2hUVk8X.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{"outline":"deep"},"headers":[],"relativePath":"dev/question/scss/生成margin、padding值.md","filePath":"dev/question/scss/生成margin、padding值.md","lastUpdated":1710243700000}'),i={name:"dev/question/scss/生成margin、padding值.md"},l=p(`<h4 id="_1、使用-scss-生成-margin-四个方向-0-100px-的值" tabindex="-1">1、使用 scss 生成 margin 四个方向，0-100px 的值 <a class="header-anchor" href="#_1、使用-scss-生成-margin-四个方向-0-100px-的值" aria-label="Permalink to &quot;1、使用 scss 生成 margin 四个方向，0-100px 的值&quot;">​</a></h4><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code"><code><span class="line"><span>// margin</span></span>
+<span class="line"><span>@for $i from 0 through 100 {</span></span>
+<span class="line"><span>    .m#{$i} {</span></span>
+<span class="line"><span>        margin: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .mt#{$i} {</span></span>
+<span class="line"><span>        margin-top: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .mr#{$i} {</span></span>
+<span class="line"><span>        margin-right: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .mb#{$i} {</span></span>
+<span class="line"><span>        margin-bottom: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .ml#{$i} {</span></span>
+<span class="line"><span>        margin-left: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre></div><h4 id="_2、使用-scss-生成-padding-四个方向-0-100px-的值" tabindex="-1">2、使用 scss 生成 padding 四个方向，0-100px 的值 <a class="header-anchor" href="#_2、使用-scss-生成-padding-四个方向-0-100px-的值" aria-label="Permalink to &quot;2、使用 scss 生成 padding 四个方向，0-100px 的值&quot;">​</a></h4><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code"><code><span class="line"><span>// padding</span></span>
+<span class="line"><span>@for $i from 0 through 100 {</span></span>
+<span class="line"><span>    .p#{$i} {</span></span>
+<span class="line"><span>        padding: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .pt#{$i} {</span></span>
+<span class="line"><span>        padding-top: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .pr#{$i} {</span></span>
+<span class="line"><span>        padding-right: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .pb#{$i} {</span></span>
+<span class="line"><span>        padding-bottom: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    .pl#{$i} {</span></span>
+<span class="line"><span>        padding-left: $i + px;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre></div>`,4),e=[l];function c(t,d,o,r,g,m){return a(),n("div",null,e)}const $=s(i,[["render",c]]);export{_ as __pageData,$ as default};
